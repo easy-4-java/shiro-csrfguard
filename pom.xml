@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.easy4j</groupId>
     <artifactId>shiro-csrfguard</artifactId>
-    <version>3.0.x.20260630-SNAPSHOT</version>
+    <version>1.0.x.20260630-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Apache Shiro CSRF Guard extensions</description>
@@ -42,7 +42,7 @@
         <maven.version>3.9.16</maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Dependency versions -->
-        <revision>3.0.x.20260630-SNAPSHOT</revision>
+        <revision>1.0.x.20260630-SNAPSHOT</revision>
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <easy4j-shiro-extension.version>3.0.x.20260630-SNAPSHOT</easy4j-shiro-extension.version>
         <fastjson.version>2.0.62</fastjson.version>
