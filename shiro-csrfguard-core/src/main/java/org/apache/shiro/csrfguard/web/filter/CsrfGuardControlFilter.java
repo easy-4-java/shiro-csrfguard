@@ -41,7 +41,11 @@ public class CsrfGuardControlFilter extends AccessControlFilter {
 	@Override
 	public void setFilterConfig(FilterConfig filterConfig) {
 		super.setFilterConfig(filterConfig);
-		delegate.init(filterConfig);
+		try {
+			delegate.init(filterConfig);
+		} catch (ServletException e) {
+			throw new IllegalStateException(e);
+		}
 	}
 
 	/**
