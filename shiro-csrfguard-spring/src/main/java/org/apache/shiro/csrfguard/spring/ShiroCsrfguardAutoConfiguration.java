@@ -1,12 +1,14 @@
 package org.apache.shiro.csrfguard.spring;
 
-import java.lang.reflect.Method;
+import java.util.Objects;
+import java.util.Properties;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+
 
 import org.apache.shiro.csrfguard.CsrfguardConstants;
 import org.apache.shiro.csrfguard.CsrfguardJavascriptServletProperties;
 import org.apache.shiro.csrfguard.web.filter.CsrfGuardControlFilter;
-import org.apache.shiro.csrfguard.JakartaFilterAdapter;
-import org.apache.shiro.csrfguard.JakartaServletAdapter;
 import org.owasp.csrfguard.CsrfGuard;
 import org.owasp.csrfguard.CsrfGuardHttpSessionListener;
 import org.owasp.csrfguard.CsrfGuardServletContextListener;
@@ -23,6 +25,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.util.StringUtils;
 
 @Configuration
 @ConditionalOnClass(org.owasp.csrfguard.CsrfGuard.class)
@@ -46,11 +51,22 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
 	 */
 	@Bean
 	public CsrfGuard csrfGuard(ShiroCsrfguardProperties properties){
-		try {
-			CsrfGuard.load(properties.toProperties());
-		} catch (Exception e) {
-		}
-		return CsrfGuard.getInstance();
+        Properties configuration = properties.toProperties();
+        if (applicationContext instanceof WebApplicationContext webContext) {
+            ServletContext servletContext = webContext.getServletContext();
+            if (Objects.nonNull(servletContext)) {
+                String contextPath = servletContext.getContextPath();
+                String prefix = StringUtils.hasLength(contextPath) && !"/".equals(contextPath) ? contextPath : "";
+                for (String key : configuration.stringPropertyNames()) {
+                    configuration.setProperty(key, configuration.getProperty(key).replace("%servletContext%", prefix));
+                }
+            }
+        }
+        CsrfGuard.load(configuration);
+        CsrfGuard guard = CsrfGuard.getInstance();
+        // 上游延迟解析配置，在创建 Bean 时触发校验，非法配置直接阻止启动。
+        guard.isEnabled();
+        return guard;
 	}
 
 	/**
@@ -62,12 +78,11 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
 	 */
 	@Bean
     @ConditionalOnMissingBean
-	public ServletRegistrationBean<jakarta.servlet.Servlet> javaScriptServlet(ShiroCsrfguardProperties properties) throws Exception {
+	public ServletRegistrationBean<JavaScriptServlet> javaScriptServlet(ShiroCsrfguardProperties properties) throws Exception {
 
 		JavaScriptServlet javaScriptServlet = new JavaScriptServlet();
-		// Wrap javax.servlet.http.HttpServlet as jakarta.servlet.Servlet
-		ServletRegistrationBean<jakarta.servlet.Servlet> registrationBean =
-				new ServletRegistrationBean<>(new JakartaServletAdapter(javaScriptServlet));
+		ServletRegistrationBean<JavaScriptServlet> registrationBean =
+				new ServletRegistrationBean<>(javaScriptServlet);
 
 		// 默认参数
 		CsrfguardJavascriptServletProperties javascript = properties.getJavascript();
@@ -93,66 +108,17 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
 	 */
 	@Bean
 	@ConditionalOnProperty(prefix = "shiro", value = "session-creation-enabled", havingValue = "true")
-	protected ServletListenerRegistrationBean<jakarta.servlet.http.HttpSessionListener> csrfGuardHttpSessionListener()
+	protected ServletListenerRegistrationBean<CsrfGuardHttpSessionListener> csrfGuardHttpSessionListener()
 			throws Exception {
 
-		// Use a jakarta HttpSessionListener adapter since CsrfGuardHttpSessionListener implements javax
-		jakarta.servlet.http.HttpSessionListener jakartaListener = createJakartaSessionListener();
-		ServletListenerRegistrationBean<jakarta.servlet.http.HttpSessionListener> registration =
-				new ServletListenerRegistrationBean<>(jakartaListener);
+		ServletListenerRegistrationBean<CsrfGuardHttpSessionListener> registration =
+				new ServletListenerRegistrationBean<>(new CsrfGuardHttpSessionListener());
 		registration.setOrder(Integer.MIN_VALUE);
 		registration.setEnabled(false);
 
 		return registration;
 	}
 
-	private jakarta.servlet.http.HttpSessionListener createJakartaSessionListener() {
-		CsrfGuardHttpSessionListener javaxListener = new CsrfGuardHttpSessionListener();
-		return new jakarta.servlet.http.HttpSessionListener() {
-			/**
-			 * session Created.
-			 *
-			 * @param se the se
-			 */
-			@Override
-			public void sessionCreated(jakarta.servlet.http.HttpSessionEvent se) {
-				try {
-					Class<?> eventClass = Class.forName("javax.servlet.http.HttpSessionEvent");
-					Object javaxEvent = adaptSessionEvent(se, eventClass);
-					javaxListener.getClass().getMethod("sessionCreated", eventClass).invoke(javaxListener, javaxEvent);
-				} catch (Exception e) {
-					// ignore
-				}
-			}
-
-			/**
-			 * session Destroyed.
-			 *
-			 * @param se the se
-			 */
-			@Override
-			public void sessionDestroyed(jakarta.servlet.http.HttpSessionEvent se) {
-				try {
-					Class<?> eventClass = Class.forName("javax.servlet.http.HttpSessionEvent");
-					Object javaxEvent = adaptSessionEvent(se, eventClass);
-					javaxListener.getClass().getMethod("sessionDestroyed", eventClass).invoke(javaxListener, javaxEvent);
-				} catch (Exception e) {
-					// ignore
-				}
-			}
-
-			private Object adaptSessionEvent(jakarta.servlet.http.HttpSessionEvent se, Class<?> javaxEventClass) throws Exception {
-				return java.lang.reflect.Proxy.newProxyInstance(
-						javaxEventClass.getClassLoader(),
-						new Class<?>[]{javaxEventClass},
-						(proxy, method, args) -> {
-							Method jakartaMethod = se.getClass().getMethod(method.getName(), method.getParameterTypes());
-							return jakartaMethod.invoke(se, args);
-						}
-				);
-			}
-		};
-	}
 
     /**
      * csrf Guard Filter.
@@ -162,10 +128,10 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
      */
 	@Bean("csrf")
     @ConditionalOnMissingBean(name = "csrf")
-    protected FilterRegistrationBean<jakarta.servlet.Filter> csrfGuardFilter() throws Exception {
+    protected FilterRegistrationBean<CsrfGuardControlFilter> csrfGuardFilter() throws Exception {
 
-        FilterRegistrationBean<jakarta.servlet.Filter> registration = new FilterRegistrationBean<>();
-        registration.setFilter(new JakartaFilterAdapter(new CsrfGuardControlFilter()));
+        FilterRegistrationBean<CsrfGuardControlFilter> registration = new FilterRegistrationBean<>();
+        registration.setFilter(new CsrfGuardControlFilter());
         registration.setOrder(Integer.MIN_VALUE);
         registration.setEnabled(false);
         return registration;
@@ -178,8 +144,16 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
 	 * @return the result
 	 */
 	@Bean
+    @DependsOn("csrfGuard")
 	protected CsrfGuardServletContextListener csrfGuardServletContextListener() {
-		return new CsrfGuardServletContextListener();
+        return new CsrfGuardServletContextListener() {
+            @Override
+            public void contextInitialized(ServletContextEvent event) {
+                // Spring 配置已完成加载，避免上游监听器再读文件并覆盖配置。
+                CsrfGuardServletContextListener.printConfigIfConfigured(
+                        event.getServletContext(), "Spring CSRFGuard configuration: ");
+            }
+        };
 	}
 
 	/**

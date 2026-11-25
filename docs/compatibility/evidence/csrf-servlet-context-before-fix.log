@@ -1,0 +1,32 @@
+
+
+Test run finished after 103 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         2 tests successful      ]
+[         1 tests failed          ]
+
+
+Failures (1):
+  JUnit Jupiter:ShiroCsrfguardAutoConfigurationTest:servletContextInitializationRetainsSpringConfigurationWithoutExternalFile()
+    MethodSource [className = 'org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest', methodName = 'servletContextInitializationRetainsSpringConfigurationWithoutExternalFile', methodParameterTypes = '']
+    => java.lang.RuntimeException: java.lang.RuntimeException: Can't find default OWASP CSRFGuard properties file: Owasp.CsrfGuard.properties
+       org.owasp.csrfguard.CsrfGuardServletContextListener.contextInitialized(CsrfGuardServletContextListener.java:104)
+       org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest.servletContextInitializationRetainsSpringConfigurationWithoutExternalFile(ShiroCsrfguardAutoConfigurationTest.java:55)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+     Caused by: java.lang.RuntimeException: Can't find default OWASP CSRFGuard properties file: Owasp.CsrfGuard.properties
+       org.owasp.csrfguard.CsrfGuardServletContextListener.contextInitialized(CsrfGuardServletContextListener.java:95)
+       [...]
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.

@@ -41,16 +41,16 @@ public class ShiroCsrfguardProperties extends CsrfguardProperties {
 	public Properties toProperties() {
 		
 		Properties properties = super.toProperties();
-		properties.put("org.owasp.csrfguard.JavascriptServlet.cacheControl", javascript.getCacheControl());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.domainStrict", javascript.isDomainStrict());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.injectIntoAttributes", javascript.isInjectIntoAttributes());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.injectGetForms", javascript.isInjectGetForms());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.injectFormAttributes", javascript.isInjectFormAttributes());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.injectIntoForms", javascript.isInjectIntoForms());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.refererPattern", javascript.getRefererPattern());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.refererMatchDomain", javascript.isRefererMatchDomain());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.sourceFile", javascript.getSourceFile());
-		properties.put("org.owasp.csrfguard.JavascriptServlet.xRequestedWith", javascript.getXRequestedWith());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.cacheControl", javascript.getCacheControl());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.domainStrict", javascript.isDomainStrict());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.injectIntoAttributes", javascript.isInjectIntoAttributes());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.injectGetForms", javascript.isInjectGetForms());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.injectFormAttributes", javascript.isInjectFormAttributes());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.injectIntoForms", javascript.isInjectIntoForms());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.refererPattern", javascript.getRefererPattern());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.refererMatchDomain", javascript.isRefererMatchDomain());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.sourceFile", javascript.getSourceFile());
+		putProperty(properties, "org.owasp.csrfguard.JavascriptServlet.xRequestedWith", javascript.getXRequestedWith());
 		
 		return properties;
 	}

@@ -1,0 +1,31 @@
+{
+  "repo": "shiro-csrfguard",
+  "line": 2,
+  "exit": 1,
+  "seconds": 3.55,
+  "errors": [
+    "[ERROR] Failed to execute goal on project shiro-csrfguard-core: Could not resolve dependencies for project io.github.easy4j:shiro-csrfguard-core:jar:2.0.x.20260630-SNAPSHOT",
+    "[ERROR] dependency: org.owasp:csrfguard-extension-session:jar:4.5.0-jakarta (compile)",
+    "[ERROR] \tCannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.owasp:csrfguard-extension-session:jar:4.5.0-jakarta has not been downloaded from it before.",
+    "[ERROR] dependency: org.owasp:csrfguard:jar:4.5.0-jakarta (compile)",
+    "[ERROR] \tCannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.owasp:csrfguard:jar:4.5.0-jakarta has not been downloaded from it before.",
+    "[ERROR] dependency: org.owasp.encoder:encoder:jar:1.6.0 (compile)",
+    "[ERROR] \tCannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.owasp.encoder:encoder:jar:1.6.0 has not been downloaded from it before.",
+    "[ERROR] -> [Help 1]",
+    "[ERROR] ",
+    "[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.",
+    "[ERROR] Re-run Maven using the -X switch to enable full debug logging.",
+    "[ERROR] "
+  ],
+  "command": [
+    "/opt/homebrew/bin/mvn",
+    "-s",
+    "/tmp/shiro-302-settings.xml",
+    "-Dmaven.repo.local=/tmp/shiro-302-m2",
+    "-o",
+    "-B",
+    "-ntp",
+    "test"
+  ],
+  "jdk": "/Users/wandl/Library/Java/JavaVirtualMachines/corretto-17.0.21/Contents/Home"
+}

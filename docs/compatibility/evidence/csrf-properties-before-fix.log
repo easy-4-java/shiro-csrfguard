@@ -1,0 +1,56 @@
+
+
+Test run finished after 48 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         3 tests failed          ]
+
+
+Failures (3):
+  JUnit Jupiter:CsrfguardPropertiesTest:enabledConfigurationLoadsTokenAndSessionSettings()
+    MethodSource [className = 'org.apache.shiro.csrfguard.CsrfguardPropertiesTest', methodName = 'enabledConfigurationLoadsTokenAndSessionSettings', methodParameterTypes = '']
+    => java.lang.NullPointerException
+       java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+       java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+       java.base/java.util.Properties.put(Properties.java:1301)
+       org.apache.shiro.csrfguard.CsrfguardProperties.toProperties(CsrfguardProperties.java:132)
+       org.apache.shiro.csrfguard.CsrfguardPropertiesTest.enabledConfigurationLoadsTokenAndSessionSettings(CsrfguardPropertiesTest.java:29)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  JUnit Jupiter:CsrfguardPropertiesTest:defaultConfigurationOmitsUnsetOptionalValues()
+    MethodSource [className = 'org.apache.shiro.csrfguard.CsrfguardPropertiesTest', methodName = 'defaultConfigurationOmitsUnsetOptionalValues', methodParameterTypes = '']
+    => java.lang.NullPointerException
+       java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+       java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+       java.base/java.util.Properties.put(Properties.java:1301)
+       org.apache.shiro.csrfguard.CsrfguardProperties.toProperties(CsrfguardProperties.java:132)
+       org.apache.shiro.csrfguard.CsrfguardPropertiesTest.defaultConfigurationOmitsUnsetOptionalValues(CsrfguardPropertiesTest.java:18)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  JUnit Jupiter:CsrfguardPropertiesTest:exportsConfiguredLandingPageAsText()
+    MethodSource [className = 'org.apache.shiro.csrfguard.CsrfguardPropertiesTest', methodName = 'exportsConfiguredLandingPageAsText', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <false> but was: <null>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+       org.apache.shiro.csrfguard.CsrfguardPropertiesTest.exportsConfiguredLandingPageAsText(CsrfguardPropertiesTest.java:45)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.

@@ -1,0 +1,32 @@
+
+
+Test run finished after 706 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         2 tests found           ]
+[         0 tests skipped         ]
+[         2 tests started         ]
+[         0 tests aborted         ]
+[         1 tests successful      ]
+[         1 tests failed          ]
+
+
+Failures (1):
+  JUnit Jupiter:ShiroCsrfguardAutoConfigurationTest:rejectsInvalidConfigurationDuringBeanCreation()
+    MethodSource [className = 'org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest', methodName = 'rejectsInvalidConfigurationDuringBeanCreation', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.lang.RuntimeException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+       org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest.rejectsInvalidConfigurationDuringBeanCreation(ShiroCsrfguardAutoConfigurationTest.java:24)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
