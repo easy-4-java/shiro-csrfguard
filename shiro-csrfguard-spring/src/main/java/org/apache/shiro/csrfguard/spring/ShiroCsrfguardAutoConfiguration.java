@@ -1,5 +1,10 @@
 package org.apache.shiro.csrfguard.spring;
 
+import java.util.Objects;
+import java.util.Properties;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+
 
 import org.apache.shiro.csrfguard.CsrfguardConstants;
 import org.apache.shiro.csrfguard.CsrfguardJavascriptServletProperties;
@@ -20,6 +25,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.util.StringUtils;
 
 @Configuration
 @ConditionalOnClass(org.owasp.csrfguard.CsrfGuard.class)
@@ -43,11 +51,22 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
 	 */
 	@Bean
 	public CsrfGuard csrfGuard(ShiroCsrfguardProperties properties){
-		try {
-			CsrfGuard.load(properties.toProperties());
-		} catch (Exception e) {
-		}
-		return CsrfGuard.getInstance();
+        Properties configuration = properties.toProperties();
+        if (applicationContext instanceof WebApplicationContext webContext) {
+            ServletContext servletContext = webContext.getServletContext();
+            if (Objects.nonNull(servletContext)) {
+                String contextPath = servletContext.getContextPath();
+                String prefix = StringUtils.hasLength(contextPath) && !"/".equals(contextPath) ? contextPath : "";
+                for (String key : configuration.stringPropertyNames()) {
+                    configuration.setProperty(key, configuration.getProperty(key).replace("%servletContext%", prefix));
+                }
+            }
+        }
+        CsrfGuard.load(configuration);
+        CsrfGuard guard = CsrfGuard.getInstance();
+        // 上游延迟解析配置，在创建 Bean 时触发校验，非法配置直接阻止启动。
+        guard.isEnabled();
+        return guard;
 	}
 
 	/**
@@ -125,8 +144,16 @@ public class ShiroCsrfguardAutoConfiguration implements ApplicationContextAware 
 	 * @return the result
 	 */
 	@Bean
+    @DependsOn("csrfGuard")
 	protected CsrfGuardServletContextListener csrfGuardServletContextListener() {
-		return new CsrfGuardServletContextListener();
+        return new CsrfGuardServletContextListener() {
+            @Override
+            public void contextInitialized(ServletContextEvent event) {
+                // Spring 配置已完成加载，避免上游监听器再读文件并覆盖配置。
+                CsrfGuardServletContextListener.printConfigIfConfigured(
+                        event.getServletContext(), "Spring CSRFGuard configuration: ");
+            }
+        };
 	}
 
 	/**

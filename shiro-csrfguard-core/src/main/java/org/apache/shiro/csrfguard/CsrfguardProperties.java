@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 
@@ -101,7 +102,13 @@ public class CsrfguardProperties {
 
 	private String sessionKey = "OWASP_CSRFGUARD_KEY";
 
-	private Map<String, String> actions = new HashMap<String, String>();
+    /** CSRFGuard 4 的会话标识提取实现。 */
+    private String logicalSessionExtractor = "org.owasp.csrfguard.session.SessionTokenKeyExtractor";
+
+	private Map<String, String> actions = new HashMap<>(Map.of(
+            "Error", "org.owasp.csrfguard.action.Error",
+            "Error.Code", "403",
+            "Error.Message", "Invalid CSRF token"));
 
 	private Map<String, String> protectedPages = new HashMap<String, String>();
 
@@ -120,30 +127,31 @@ public class CsrfguardProperties {
 
 		Properties properties = new Properties();
 
-		properties.put("org.owasp.csrfguard.Logger", logger.className());
-		properties.put("org.owasp.csrfguard.TokenName", tokenName);
-		properties.put("org.owasp.csrfguard.TokenLength", tokenLength);
-		properties.put("org.owasp.csrfguard.Rotate", rotateEnabled);
-		properties.put("org.owasp.csrfguard.TokenPerPage", tokenPerPageEnabled);
-		properties.put("org.owasp.csrfguard.ValidateWhenNoSessionExists", validationWhenNoSessionExists);
-		properties.put("org.owasp.csrfguard.TokenPerPagePrecreate", tokenPerPagePrecreateEnabled);
-		properties.put("org.owasp.csrfguard.PRNG", prng);
-		properties.put("org.owasp.csrfguard.PRNG.Provider", prngProvider);
-		properties.put("org.owasp.csrfguard.NewTokenLandingPage", newTokenLandingPage);
-		properties.put("org.owasp.csrfguard.Config.Print", printConfig);
-		properties.put("org.owasp.csrfguard.Enabled", enabled);
-		properties.put("org.owasp.csrfguard.UseNewTokenLandingPage", useNewTokenLandingPage);
-		properties.put("org.owasp.csrfguard.SessionKey", sessionKey);
-		properties.put("org.owasp.csrfguard.Ajax", ajaxEnabled);
-		properties.put("org.owasp.csrfguard.Protect", protectEnabled);
-		properties.put("org.owasp.csrfguard.ProtectedMethods", StringUtils2.join(protectedMethods, ","));
-		properties.put("org.owasp.csrfguard.UnprotectedMethods", StringUtils2.join(unprotectedMethods, ","));
+		putProperty(properties, "org.owasp.csrfguard.Logger", logger.className());
+		putProperty(properties, "org.owasp.csrfguard.TokenName", tokenName);
+		putProperty(properties, "org.owasp.csrfguard.TokenLength", tokenLength);
+		putProperty(properties, "org.owasp.csrfguard.Rotate", rotateEnabled);
+		putProperty(properties, "org.owasp.csrfguard.TokenPerPage", tokenPerPageEnabled);
+		putProperty(properties, "org.owasp.csrfguard.ValidateWhenNoSessionExists", validationWhenNoSessionExists);
+		putProperty(properties, "org.owasp.csrfguard.TokenPerPagePrecreate", tokenPerPagePrecreateEnabled);
+		putProperty(properties, "org.owasp.csrfguard.PRNG", prng);
+		putProperty(properties, "org.owasp.csrfguard.PRNG.Provider", prngProvider);
+		putProperty(properties, "org.owasp.csrfguard.NewTokenLandingPage", newTokenLandingPage);
+		putProperty(properties, "org.owasp.csrfguard.Config.Print", printConfig);
+		putProperty(properties, "org.owasp.csrfguard.Enabled", enabled);
+		putProperty(properties, "org.owasp.csrfguard.UseNewTokenLandingPage", useNewTokenLandingPage);
+		putProperty(properties, "org.owasp.csrfguard.SessionKey", sessionKey);
+        putProperty(properties, "org.owasp.csrfguard.LogicalSessionExtractor", logicalSessionExtractor);
+		putProperty(properties, "org.owasp.csrfguard.Ajax", ajaxEnabled);
+		putProperty(properties, "org.owasp.csrfguard.Protect", protectEnabled);
+		putProperty(properties, "org.owasp.csrfguard.ProtectedMethods", StringUtils2.join(protectedMethods, ","));
+		putProperty(properties, "org.owasp.csrfguard.UnprotectedMethods", StringUtils2.join(unprotectedMethods, ","));
 		
 		if(MapUtils.isNotEmpty(actions)) {
 			Iterator<String> ite = actions.keySet().iterator();
 			while (ite.hasNext()) {
 				String key = ite.next();
-				properties.put(ACTION_PREFIX + key, actions.get(key));
+				putProperty(properties, ACTION_PREFIX + key, actions.get(key));
 			}
 		}
 
@@ -151,7 +159,7 @@ public class CsrfguardProperties {
 			Iterator<String> ite = protectedPages.keySet().iterator();
 			while (ite.hasNext()) {
 				String key = ite.next();
-				properties.put(PROTECTED_PAGE_PREFIX + key, protectedPages.get(key));
+				putProperty(properties, PROTECTED_PAGE_PREFIX + key, protectedPages.get(key));
 			}
 		}
 		
@@ -159,11 +167,17 @@ public class CsrfguardProperties {
 			Iterator<String> ite = unprotectedPages.keySet().iterator();
 			while (ite.hasNext()) {
 				String key = ite.next();
-				properties.put(UNPROTECTED_PAGE_PREFIX + key, unprotectedPages.get(key));
+				putProperty(properties, UNPROTECTED_PAGE_PREFIX + key, unprotectedPages.get(key));
 			}
 		}
 
 		return properties;
 	}
 
+    /** 将可选配置转换成 Properties 可读取的字符串，省略未设置的值。 */
+    protected static void putProperty(Properties properties, String key, Object value) {
+        if (Objects.nonNull(value)) {
+            properties.setProperty(key, String.valueOf(value));
+        }
+    }
 }

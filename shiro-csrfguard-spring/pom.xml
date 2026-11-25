@@ -13,6 +13,20 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Spring web filters, handlers, repositories and realms for csrfguard</description>
     <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.owasp</groupId>
+                <artifactId>csrfguard-extension-session</artifactId>
+            </dependency>
         <dependency>
             <groupId>io.github.easy4j</groupId>
             <artifactId>shiro-csrfguard-core</artifactId>
@@ -38,8 +52,8 @@
             <artifactId>spring-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -52,7 +66,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.wso2.orbit.org.owasp</groupId>
+            <groupId>org.owasp</groupId>
             <artifactId>csrfguard</artifactId>
         </dependency>
         <dependency>

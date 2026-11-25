@@ -19,9 +19,9 @@ import org.apache.shiro.web.filter.AccessControlFilter;
 import org.owasp.csrfguard.CsrfGuard;
 import org.owasp.csrfguard.CsrfGuardFilter;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -41,11 +41,7 @@ public class CsrfGuardControlFilter extends AccessControlFilter {
 	@Override
 	public void setFilterConfig(FilterConfig filterConfig) {
 		super.setFilterConfig(filterConfig);
-		try {
-			delegate.init(filterConfig);
-		} catch (ServletException e) {
-			throw new IllegalStateException(e);
-		}
+		delegate.init(filterConfig);
 	}
 
 	/**
