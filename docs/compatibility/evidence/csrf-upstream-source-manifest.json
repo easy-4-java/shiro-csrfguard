@@ -1,0 +1,317 @@
+{
+  "repository": "OWASP/www-project-csrfguard",
+  "tag": "4.5.0-jakarta",
+  "commit": "69145a9b4c349855de3162e46fe567b3d36fdf45",
+  "files": [
+    {
+      "path": "csrfguard-extensions/csrfguard-extension-session/src/main/java/org/owasp/csrfguard/CsrfGuardHttpSessionListener.java",
+      "git_blob_sha": "c6a7fc5484ce05eaf04d91e3bc89cc7135e25dc5"
+    },
+    {
+      "path": "csrfguard-extensions/csrfguard-extension-session/src/main/java/org/owasp/csrfguard/session/SessionTokenKeyExtractor.java",
+      "git_blob_sha": "364703877180a4c296119c853310d67d4135e893"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "8dfa29322c69e7f4c351872d8c4fa7c76e3da2a3"
+    },
+    {
+      "path": "csrfguard-extensions/csrfguard-extension-session/src/main/java/org/owasp/csrfguard/session/ContainerSession.java",
+      "git_blob_sha": "edfc0a7daab3f6c53d0d349f3870e432fb1a20f2"
+    },
+    {
+      "path": "csrfguard-extensions/csrfguard-extension-session/src/main/java/org/owasp/csrfguard/action/SessionAttribute.java",
+      "git_blob_sha": "c127b25406b413cff593fc26c62d608eb48cc28f"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/CsrfGuardFilter.java",
+      "git_blob_sha": "9e192de6841f57d78917fa056d18770c463ad605"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/CsrfGuardException.java",
+      "git_blob_sha": "f0d69901506d7d4f3bb00b574b59fd4887f0d098"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/CsrfGuardServletContextListener.java",
+      "git_blob_sha": "a20b5d9c1058e2c18953c6fa680cc36590d49e52"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/CsrfValidator.java",
+      "git_blob_sha": "1dc537952b82e9dc850df78ade2f2d12a10231ef"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/CsrfGuard.java",
+      "git_blob_sha": "95156ec4fdaa1d1737afb1e0e055408024d60ae3"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/ProtectionResult.java",
+      "git_blob_sha": "47ca2701ff4dad6851e107ccf175f4bb83779f28"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Error.java",
+      "git_blob_sha": "c368d601d5785bfdc471c0ed651b0aa5f32531cf"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/AbstractAction.java",
+      "git_blob_sha": "3e733661f8af60e3c3385f3d9ba3052e3978574d"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/IAction.java",
+      "git_blob_sha": "b4782730a350a7c68e41e7f1b7d469fdf642b8b7"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Empty.java",
+      "git_blob_sha": "3be1aae072d3ed837ee8ee2840004969c31d2959"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Forward.java",
+      "git_blob_sha": "9a53c2c2e4abff12d6c8b56a26dc45bce728c289"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Redirect.java",
+      "git_blob_sha": "6c17c32a93677827b4ec1f436c4f66138c7a53e6"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Log.java",
+      "git_blob_sha": "58575b2cd419bba273eb99bdf2009b10f2f7d16e"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Invalidate.java",
+      "git_blob_sha": "37bfea2c18aa87261c7ba2e00a5c3e4d6c6d7841"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/Rotate.java",
+      "git_blob_sha": "55c317619259a27123d93a356e526031d01f5169"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/ConfigurationProvider.java",
+      "git_blob_sha": "0cae5fdfc4fc044947624ed2618237933ba89cf4"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/ConfigurationProviderFactory.java",
+      "git_blob_sha": "454c2308cde85dc5abe72a8f9329f10a1c16e936"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/NullConfigurationProvider.java",
+      "git_blob_sha": "bb339c512d900c5202b1079c2a28d9d9620bf7c7"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/action/RequestAttribute.java",
+      "git_blob_sha": "e671b0038b7bae5b79dfceafaf5533933b4c52c9"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/PropertiesConfigurationProvider.java",
+      "git_blob_sha": "b172fb6ee3cd5f961581419448ec4f06bf859d0a"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/NullConfigurationProviderFactory.java",
+      "git_blob_sha": "7b6179d610d97c3745f0e8d4d20288fd8e94105c"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ConfigPropertiesCascadeCommonUtils.java",
+      "git_blob_sha": "55ebe7d13b1652416ac62ca76e22885331d3e829"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ConfigPropertiesCascadeBase.java",
+      "git_blob_sha": "b0e9300e71b8410dbfd2ee580e85bee86fd73659"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ConfigPropertiesCascadeUtils.java",
+      "git_blob_sha": "a4680cee9d0ed2bf1b303365827b458bc77bd9ae"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ConfigurationAutodetectProviderFactory.java",
+      "git_blob_sha": "180f893a695f9f3a3a548f7b07f34744fecfd2b4"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/PropertiesConfigurationProviderFactory.java",
+      "git_blob_sha": "fd16bdb105bde9eb265e56fc3ddf3e3fa27d3ecb"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ConfigurationOverlayProvider.java",
+      "git_blob_sha": "56a5a4434021fd225f71f347a6cf9291ddb8ca15"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ConfigurationOverlayProviderFactory.java",
+      "git_blob_sha": "8566108da52dbaed579232c9121da3138438e221"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ExpirableValue.java",
+      "git_blob_sha": "1d29e6c5bfe028b0ae916876c9803d7514ff130d"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/overlay/ExpirableCache.java",
+      "git_blob_sha": "2b5ea6faffa0ed4e31bfc389ea036d3049c3bdda"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/HttpMethod.java",
+      "git_blob_sha": "2e7c3296e1d61d3095422a73324c6eb662cb6ca9"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/ConfigParameters.java",
+      "git_blob_sha": "2db6114eb9aa135d96ea8ed755004aaf3167a341"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/PropertyUtils.java",
+      "git_blob_sha": "28ebcd6a4fc9b9233ea8fe5ba2845ae070311ff2"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/SimpleBooleanConfigParameter.java",
+      "git_blob_sha": "5638ced57252c4f8f725dc56d1c8ea13408c3dc4"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/javascript/BooleanJsConfigParameter.java",
+      "git_blob_sha": "30664865a956f9a8819ca21814c0bdfc4da71dcb"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/SimpleConfigParameter.java",
+      "git_blob_sha": "9f3df5d6a719387f850735cd268d3f02ed2c7e04"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/javascript/JavaScriptConfigParameters.java",
+      "git_blob_sha": "25237c17f48a8df2dcb87f4e5b9c4759c81ace7a"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/SimpleDurationParameter.java",
+      "git_blob_sha": "d91b75b8b4c6401f8d5744c2ba31b5ccb6013485"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/javascript/JsConfigParameter.java",
+      "git_blob_sha": "ec819aaf0687bef156c9a55a7452497a811cdfbd"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/SimpleIntConfigParameter.java",
+      "git_blob_sha": "5d631b975758362f80de99463ba1d3d28747b5c7"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/exception/CSRFGuardTokenException.java",
+      "git_blob_sha": "7d01ec8fff9f8bc4e506187794e05e1ff02863b5"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/config/properties/javascript/StringJsConfigParameter.java",
+      "git_blob_sha": "ae35f7209b2d50cc128b1ba1612f46def6dbe121"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/http/InterceptRedirectResponse.java",
+      "git_blob_sha": "0dab8a4d44b59932d75afcb459a05200320feebf"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/servlet/JavaScriptServlet.java",
+      "git_blob_sha": "5760e7ba805ab6c9519b017997e3b1f6ef22031e"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/TokenUtils.java",
+      "git_blob_sha": "118b01c2914ada6683d432ff9fca67970909fe88"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/session/LogicalSession.java",
+      "git_blob_sha": "b8f56eb95f5921e05af6631230adf3e728864098"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/businessobject/TokenBO.java",
+      "git_blob_sha": "86586714a5f0571a9ccb1cdf6e808a7e1f5a806b"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/mapper/TokenMapper.java",
+      "git_blob_sha": "78604d90f4e248f31dc5438c49dd15a40274eec7"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/storage/LogicalSessionExtractor.java",
+      "git_blob_sha": "7f8a1624bf2e4ab7769d95d897f40cce5a8a0010"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/storage/Token.java",
+      "git_blob_sha": "d9bf262583d7c81d8c85e7b38c7864f2ee13bb56"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/storage/TokenHolder.java",
+      "git_blob_sha": "b28db647afb440fe71a9eb388aa29b2494d04eb8"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/service/TokenService.java",
+      "git_blob_sha": "52f719e698e841e0c282e83be434bcdd154dc047"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/storage/impl/InMemoryTokenHolder.java",
+      "git_blob_sha": "f0026360a443e6d477e14bdaf3f69e609e8b808b"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/storage/impl/PageTokenValue.java",
+      "git_blob_sha": "f958071a6eee00c12cd1ed2ff36bb17f4048dd5b"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/storage/impl/InMemoryToken.java",
+      "git_blob_sha": "cdb9c476b873dae79bf744b12d573abcd0f71dcb"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/BrowserEncoder.java",
+      "git_blob_sha": "ba8e02ccc8c79a2c124b542e1f2b49fe2943a6db"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/token/transferobject/TokenTO.java",
+      "git_blob_sha": "ab285b1921736ab9f717e0cd1e5cd317973e95c5"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/ConvertUtil.java",
+      "git_blob_sha": "547fc8f1129b3b1c0b822759ad551f116aa4a7b6"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/CsrfGuardUtils.java",
+      "git_blob_sha": "5a703778e8423bcc0cf6197c3501dae2093fbfc8"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/CsrfGuardPropertiesToStringBuilder.java",
+      "git_blob_sha": "a2e69dacb9212ffa1361570dbbcdd16dd041bf79"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/MessageConstants.java",
+      "git_blob_sha": "90b7fa57169ef7139ceb2e5e4a76305ffdd6f7e4"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/RegexValidationUtil.java",
+      "git_blob_sha": "54de75da4e4ab1542ce46f6d842cb9ba11f717a7"
+    },
+    {
+      "path": "csrfguard/src/main/java/org/owasp/csrfguard/util/RandomGenerator.java",
+      "git_blob_sha": "2d934f05c1ee40b0c33dbe0b8eb6e4c4f5748078"
+    },
+    {
+      "path": "csrfguard/src/main/resources/.babelrc",
+      "git_blob_sha": "02b621269639b147f4c3318ae85e2bca9a847699"
+    },
+    {
+      "path": "csrfguard/src/main/resources/.gitignore",
+      "git_blob_sha": "394522f420e2aa8d7322d33629b6f3d6240fadb7"
+    },
+    {
+      "path": "csrfguard/src/main/resources/csrfguard.min.js",
+      "git_blob_sha": "82974abe1fb1197f9e58a24478c56118bb67598d"
+    },
+    {
+      "path": "csrfguard/src/main/resources/csrfguard.properties",
+      "git_blob_sha": "21a7c6cb6dac1b229f00b3b6893dabeffcce2219"
+    },
+    {
+      "path": "csrfguard/src/main/resources/license.txt",
+      "git_blob_sha": "e8cae84716300d35ce14ca6f594879e2026c0acf"
+    },
+    {
+      "path": "csrfguard/src/main/resources/csrfguard.js",
+      "git_blob_sha": "964a70b7e71aaa685169a989169aa87a816cfc57"
+    },
+    {
+      "path": "csrfguard/src/main/resources/package.json",
+      "git_blob_sha": "e28ccf763a2a385dc66898069d9d807ee0e51047"
+    },
+    {
+      "path": "csrfguard/src/main/resources/webpack.config.js",
+      "git_blob_sha": "f787ef7fb1d1784ea7c890ab50ebc1504c4af772"
+    },
+    {
+      "path": "csrfguard/src/main/resources/package-lock.json",
+      "git_blob_sha": "34a933b413ee67398b33431d816521a53e2335bf"
+    }
+  ],
+  "verified_local_git_blobs": true,
+  "mismatches": []
+}

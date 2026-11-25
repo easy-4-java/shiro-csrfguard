@@ -1,0 +1,43 @@
+{
+  "name": "csrf-focused-suite",
+  "line": 3,
+  "compile_exit": 0,
+  "compile_command": [
+    "/Users/wandl/Library/Java/JavaVirtualMachines/ms-21.0.13.0.2/Contents/Home/bin/javac",
+    "--release",
+    "21",
+    "-cp",
+    "/tmp/shiro-csrfguard-upstream-classes:/tmp/shiro-302-m2/org/apache/commons/commons-lang3/3.17.0/commons-lang3-3.17.0.jar:/tmp/shiro-302-m2/commons-io/commons-io/2.18.0/commons-io-2.18.0.jar:/tmp/shiro-302-m2/org/slf4j/slf4j-api/2.0.18/slf4j-api-2.0.18.jar:/tmp/shiro-302-m2/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar:/tmp/shiro-302-m2/jakarta/servlet/jakarta.servlet-api/6.1.0/jakarta.servlet-api-6.1.0.jar:/tmp/shiro-302-m2/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar:/tmp/shiro-302-m2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-lang/3.0.2/shiro-lang-3.0.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-web/3.0.2/shiro-web-3.0.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-core/3.0.2/shiro-core-3.0.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-cache/3.0.2/shiro-cache-3.0.2.jar:/tmp/shiro-302-m2/org/springframework/spring-test/7.0.8/spring-test-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-core/7.0.8/spring-core-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-beans/7.0.8/spring-beans-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-context/7.0.8/spring-context-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-aop/7.0.8/spring-aop-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-expression/7.0.8/spring-expression-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-web/7.0.8/spring-web-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/boot/spring-boot/4.0.7/spring-boot-4.0.7.jar:/tmp/shiro-302-m2/org/springframework/boot/spring-boot-autoconfigure/4.0.7/spring-boot-autoconfigure-4.0.7.jar:/tmp/shiro-302-m2/commons-logging/commons-logging/1.3.6/commons-logging-1.3.6.jar:/tmp/shiro-302-m2/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/tmp/shiro-302-m2/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar:/tmp/shiro-302-m2/org/junit/platform/junit-platform-launcher/1.11.4/junit-platform-launcher-1.11.4.jar:/tmp/shiro-302-m2/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar:/tmp/shiro-302-m2/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/tmp/shiro-302-m2/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/tmp/shiro-302-m2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar",
+    "-d",
+    "/tmp/shiro-resume-results/csrf-focused-suite-3",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/main/java/org/apache/shiro/csrfguard/CsrfguardProperties.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/main/java/org/apache/shiro/csrfguard/CsrfguardJavascriptServletProperties.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/main/java/org/apache/shiro/csrfguard/CsrfguardConstants.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/main/java/org/apache/shiro/csrfguard/web/filter/CsrfGuardControlFilter.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-extension/shiro-extension-core/src/main/java/org/apache/shiro/biz/utils/StringUtils2.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-spring/src/main/java/org/apache/shiro/csrfguard/spring/ShiroCsrfguardProperties.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-spring/src/main/java/org/apache/shiro/csrfguard/spring/ShiroCsrfguardAutoConfiguration.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-spring/src/test/java/org/apache/shiro/csrfguard/spring/ShiroCsrfguardAutoConfigurationTest.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/test/java/org/apache/shiro/csrfguard/CsrfguardPropertiesTest.java",
+    "/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/test/java/org/apache/shiro/csrfguard/web/filter/CsrfGuardControlFilterTest.java",
+    "/tmp/shiro-resume-results/csrf-focused-suite-3/FocusedJUnit.java"
+  ],
+  "test_exit": 0,
+  "test_command": [
+    "/Users/wandl/Library/Java/JavaVirtualMachines/ms-21.0.13.0.2/Contents/Home/bin/java",
+    "-cp",
+    "/tmp/shiro-resume-results/csrf-focused-suite-3:/tmp/shiro-csrfguard-upstream-classes:/tmp/shiro-302-m2/org/apache/commons/commons-lang3/3.17.0/commons-lang3-3.17.0.jar:/tmp/shiro-302-m2/commons-io/commons-io/2.18.0/commons-io-2.18.0.jar:/tmp/shiro-302-m2/org/slf4j/slf4j-api/2.0.18/slf4j-api-2.0.18.jar:/tmp/shiro-302-m2/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar:/tmp/shiro-302-m2/jakarta/servlet/jakarta.servlet-api/6.1.0/jakarta.servlet-api-6.1.0.jar:/tmp/shiro-302-m2/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar:/tmp/shiro-302-m2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-lang/3.0.2/shiro-lang-3.0.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-web/3.0.2/shiro-web-3.0.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-core/3.0.2/shiro-core-3.0.2.jar:/tmp/shiro-302-m2/org/apache/shiro/shiro-cache/3.0.2/shiro-cache-3.0.2.jar:/tmp/shiro-302-m2/org/springframework/spring-test/7.0.8/spring-test-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-core/7.0.8/spring-core-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-beans/7.0.8/spring-beans-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-context/7.0.8/spring-context-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-aop/7.0.8/spring-aop-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-expression/7.0.8/spring-expression-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/spring-web/7.0.8/spring-web-7.0.8.jar:/tmp/shiro-302-m2/org/springframework/boot/spring-boot/4.0.7/spring-boot-4.0.7.jar:/tmp/shiro-302-m2/org/springframework/boot/spring-boot-autoconfigure/4.0.7/spring-boot-autoconfigure-4.0.7.jar:/tmp/shiro-302-m2/commons-logging/commons-logging/1.3.6/commons-logging-1.3.6.jar:/tmp/shiro-302-m2/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/tmp/shiro-302-m2/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar:/tmp/shiro-302-m2/org/junit/platform/junit-platform-launcher/1.11.4/junit-platform-launcher-1.11.4.jar:/tmp/shiro-302-m2/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar:/tmp/shiro-302-m2/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/tmp/shiro-302-m2/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/tmp/shiro-302-m2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar",
+    "FocusedJUnit",
+    "org.apache.shiro.csrfguard.CsrfguardPropertiesTest",
+    "org.apache.shiro.csrfguard.web.filter.CsrfGuardControlFilterTest",
+    "org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest"
+  ],
+  "maven_resolved_classpath": false,
+  "scope": "Focused source/test compilation and execution, not complete module verification",
+  "csrf_upstream_tag": "4.5.0-jakarta",
+  "csrf_upstream_sha": "69145a9b4c349855de3162e46fe567b3d36fdf45",
+  "gson_used": "2.13.2",
+  "upstream_declares_gson": "2.12.1",
+  "spring_boot_used": "4.0.7",
+  "spring_boot_declared": "4.0.8"
+}

@@ -1,0 +1,39 @@
+注: 由于在类路径中发现了一个或多个处理程序，因此启用了
+  批注处理。未来发行版的 javac 可能会禁用批注处理，
+  除非至少按名称指定了一个处理程序 (-processor)，
+  或指定了搜索路径 (--processor-path, --processor-module-path)，
+  或显式启用了批注处理 (-proc:only, -proc:full)。
+  可使用 -Xlint:-options 隐藏此消息。
+  可使用 -proc:none 禁用批注处理。
+
+
+Test run finished after 107 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         2 tests successful      ]
+[         1 tests failed          ]
+
+
+Failures (1):
+  JUnit Jupiter:ShiroCsrfguardAutoConfigurationTest:servletContextInitializationRetainsSpringConfigurationWithoutExternalFile()
+    MethodSource [className = 'org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest', methodName = 'servletContextInitializationRetainsSpringConfigurationWithoutExternalFile', methodParameterTypes = '']
+    => java.lang.RuntimeException: java.lang.RuntimeException: Can't find default OWASP CSRFGuard properties file: Owasp.CsrfGuard.properties
+       org.owasp.csrfguard.CsrfGuardServletContextListener.contextInitialized(CsrfGuardServletContextListener.java:104)
+       org.apache.shiro.csrfguard.spring.ShiroCsrfguardAutoConfigurationTest.servletContextInitializationRetainsSpringConfigurationWithoutExternalFile(ShiroCsrfguardAutoConfigurationTest.java:55)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+     Caused by: java.lang.RuntimeException: Can't find default OWASP CSRFGuard properties file: Owasp.CsrfGuard.properties
+       org.owasp.csrfguard.CsrfGuardServletContextListener.contextInitialized(CsrfGuardServletContextListener.java:95)
+       [...]
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.

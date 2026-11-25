@@ -1,0 +1,31 @@
+{
+  "repo": "shiro-csrfguard",
+  "line": 3,
+  "exit": 1,
+  "seconds": 6.44,
+  "errors": [
+    "[ERROR] Failed to execute goal on project shiro-csrfguard-core: Could not collect dependencies for project io.github.easy4j:shiro-csrfguard-core:jar:3.0.x.20260630-SNAPSHOT",
+    "[ERROR] Failed to read artifact descriptor for io.github.easy4j:shiro-extension-core:jar:3.0.x.20260630-SNAPSHOT",
+    "[ERROR] \tCaused by: The following artifacts could not be resolved: io.github.easy4j:shiro-extension:pom:3.0.x.20260630-SNAPSHOT (absent): Could not find artifact io.github.easy4j:shiro-extension:pom:3.0.x.20260630-SNAPSHOT (remote repositories: central (https://repo.maven.apache.org/maven2, default, releases)): Failed to collect dependencies at io.github.easy4j:shiro-extension-core:jar:3.0.x.20260630-SNAPSHOT: One or more requests failed",
+    "[ERROR] -> [Help 1]",
+    "[ERROR] ",
+    "[ERROR] To see the full stack trace of the errors, re-run Maven with the '-e' switch",
+    "[ERROR] Re-run Maven using the '-X' switch to enable verbose output",
+    "[ERROR] ",
+    "[ERROR] For more information about the errors and possible solutions, please read the following articles:",
+    "[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException",
+    "[ERROR] ",
+    "[ERROR] After correcting the problems, you can resume the build with the command"
+  ],
+  "command": [
+    "/Users/wandl/.m2/wrapper/dists/apache-maven-4.0.0-rc-6-bin/5noq01gdph7aitf1sf623gjsbe/apache-maven-4.0.0-rc-6/bin/mvn",
+    "-s",
+    "/tmp/shiro-302-settings.xml",
+    "-Dmaven.repo.local=/tmp/shiro-302-m2",
+    "-o",
+    "-B",
+    "-ntp",
+    "test"
+  ],
+  "jdk": "/Users/wandl/Library/Java/JavaVirtualMachines/ms-21.0.13.0.2/Contents/Home"
+}

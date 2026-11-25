@@ -1,0 +1,4 @@
+/Users/wandl/workspaces/workspace-github-easy-4-java/shiro-csrfguard/shiro-csrfguard-core/src/main/java/org/apache/shiro/csrfguard/web/filter/CsrfGuardControlFilter.java:46: 错误: 在相应的 try 语句主体中不能抛出异常错误ServletException
+		} catch (ServletException e) {
+		  ^
+1 个错误
